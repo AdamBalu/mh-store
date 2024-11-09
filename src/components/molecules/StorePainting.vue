@@ -14,7 +14,6 @@ function showGif() {
 }
 
 </script>
-
 <template>
 
   <div
