@@ -1,23 +1,36 @@
 <script setup lang="ts">
 
 import StorePainting from "./StorePainting.vue";
+import { vInfiniteScroll } from '@vueuse/components';
+import {ref} from "vue";
 
 const paintbrushStrokesGifSrc = "../../assets/paintbrush-strokes.gif";
 const painting1Path = "../../assets/default_painting_1.jpg";
 const painting2Path = "../../assets/default_painting_2.jpg";
 const painting3Path = "../../assets/default_painting_3.jpg";
-const dropletsGifSrc = "../../assets/droplets.gif";
+const dropletsGifSrc = "../../assets/droplets_new_bigger.gif";
+
+const imagePaths = ref([painting1Path, painting2Path, painting3Path, painting1Path, painting2Path, painting3Path])
+const gifPaths = ref([paintbrushStrokesGifSrc, dropletsGifSrc, dropletsGifSrc, paintbrushStrokesGifSrc, paintbrushStrokesGifSrc, dropletsGifSrc])
+
+function onLoadMore() {
+  imagePaths.value.push(...Array.from({ length: 5 }, (_, i) => i % 3 === 0 ? painting1Path : i % 3 === 1 ? painting2Path : painting3Path))
+  gifPaths.value.push(...Array.from({ length: 5 }, (_, i) => i % 3 === 0 ? paintbrushStrokesGifSrc : i % 3 === 1 ? dropletsGifSrc : dropletsGifSrc))
+}
 
 </script>
 
 <template>
-  <div class="painting-grid">
-    <StorePainting :bg-path="paintbrushStrokesGifSrc" :painting-path="painting1Path" price="59.99" />
-    <StorePainting :bg-path="dropletsGifSrc" :painting-path="painting2Path" price="39.95" />
-    <StorePainting :bg-path="dropletsGifSrc" :painting-path="painting3Path" price="59.99" />
-    <StorePainting :bg-path="paintbrushStrokesGifSrc" :painting-path="painting1Path" price="39.95" />
-    <StorePainting :bg-path="paintbrushStrokesGifSrc" :painting-path="painting2Path" price="59.99" />
-    <StorePainting :bg-path="dropletsGifSrc" :painting-path="painting3Path" price="39.95" />
+    <div v-infinite-scroll="onLoadMore" class="painting-grid">
+      <div v-for="item in imagePaths" :key="item">
+        <StorePainting :bg-path="gifPaths[imagePaths.indexOf(item)]" :painting-path="item" price="39.95" />
+      </div>
+<!--    <StorePainting :bg-path="paintbrushStrokesGifSrc" :painting-path="painting1Path" price="59.99" />-->
+<!--    <StorePainting :bg-path="dropletsGifSrc" :painting-path="painting2Path" price="39.95" />-->
+<!--    <StorePainting :bg-path="dropletsGifSrc" :painting-path="painting3Path" price="59.99" />-->
+<!--    <StorePainting :bg-path="paintbrushStrokesGifSrc" :painting-path="painting1Path" price="39.95" />-->
+<!--    <StorePainting :bg-path="paintbrushStrokesGifSrc" :painting-path="painting2Path" price="59.99" />-->
+<!--    <StorePainting :bg-path="dropletsGifSrc" :painting-path="painting3Path" price="39.95" />-->
   </div>
 </template>
 
