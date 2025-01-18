@@ -1,29 +1,33 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import { ref } from "vue";
 import PriceChip from "./PriceChip.vue";
 
-const props = defineProps<{ bgPath: string, paintingPath: string, price: string }>()
+const props = defineProps<{ bgPath: string, paintingPath: string, price: string }>();
 
-const gifPath = new URL(props.bgPath, import.meta.url).href
-const gifSrc = ref(`${gifPath}?${new Date().getTime()}`)
+const gifPath = new URL(props.bgPath, import.meta.url).href; // Static GIF path
+const gifSrc = ref<string | null>(null); // GIF source will be set on hover
 
-const painting1Path = new URL(props.paintingPath, import.meta.url).href
+const painting1Path = new URL(props.paintingPath, import.meta.url).href;
 
-function showGif() {
-  gifSrc.value = `${gifPath}?${new Date().getTime()}`
+function playGif() {
+  gifSrc.value = `${gifPath}?${Date.now()}`;
+}
+
+function clearGif() {
+  gifSrc.value = null;
 }
 
 </script>
 <template>
-
-  <div
-      class="hover-element"
-      @mouseenter="showGif"
-  >
-    <img :src="gifSrc" alt="gif" class="gif-img" />
-    <div class="painting-wrapper">
+  <div class="hover-element">
+    <img v-if="gifSrc" :src="gifSrc" alt="" class="gif-img" />
+    <div
+        class="painting-wrapper"
+        @mouseenter="playGif"
+        @mouseleave="clearGif"
+    >
       <img :src="painting1Path" alt="painting1" class="painting" />
-      <PriceChip :price />
+      <PriceChip :price="price" />
     </div>
   </div>
 </template>
@@ -66,5 +70,4 @@ function showGif() {
     transform: scale(1.2);
   }
 }
-
 </style>
