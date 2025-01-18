@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import PaintingGrid from "./components/molecules/PaintingGrid.vue";
+import NavBar from "./components/molecules/NavBar.vue";
 </script>
 
 <template>
-  <PaintingGrid />
+  <NavBar />
+  <router-view />
 </template>
 
 <style scoped>

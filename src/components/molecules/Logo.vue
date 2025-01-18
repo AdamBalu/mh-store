@@ -36,7 +36,6 @@ function clearGif() {
 .hover-element {
   cursor: pointer;
   position: relative;
-  margin-top: 30px;
 }
 .gif-img {
   position: absolute;
@@ -46,7 +45,6 @@ function clearGif() {
   z-index: 1;
 }
 .painting-wrapper {
-  position: absolute;
   width: 100px;
 }
 

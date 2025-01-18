@@ -3,7 +3,6 @@ import { vInfiniteScroll } from '@vueuse/components';
 import {ref} from "vue";
 
 import StorePainting from "./StorePainting.vue";
-import Logo from "./Logo.vue";
 
 const paintbrushStrokesGifSrc = "../../assets/brushstrokes_final.gif";
 const painting1Path = "../../assets/default_painting_1.jpg";
@@ -22,7 +21,6 @@ function onLoadMore() {
 </script>
 
 <template>
-  <Logo />
     <div v-infinite-scroll="onLoadMore" class="painting-grid">
       <div v-for="item in imagePaths" :key="item">
         <StorePainting :bg-path="gifPaths[imagePaths.indexOf(item)]" :painting-path="item" price="39.95" />

@@ -59,9 +59,9 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
+  min-height: 100vh;
 }
 
 .top-bg {
@@ -73,4 +73,9 @@ button:focus-visible {
   z-index: -1;
   background-image: url("./assets/top_bg.svg");
   background-repeat: repeat-x;
+}
+
+.content {
+  max-width: 1280px;
+  margin: 0 auto;
 }
