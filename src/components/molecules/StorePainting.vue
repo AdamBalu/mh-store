@@ -4,8 +4,8 @@ import PriceChip from "./PriceChip.vue";
 
 const props = defineProps<{ bgPath: string, paintingPath: string, price: string }>();
 
-const gifPath = new URL(props.bgPath, import.meta.url).href; // Static GIF path
-const gifSrc = ref<string | null>(null); // GIF source will be set on hover
+const gifPath = new URL(props.bgPath, import.meta.url).href;
+const gifSrc = ref<string | null>(null);
 
 const painting1Path = new URL(props.paintingPath, import.meta.url).href;
 

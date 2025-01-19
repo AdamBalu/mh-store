@@ -61,7 +61,7 @@ button:focus-visible {
 #app {
   margin: 0 auto;
   text-align: center;
-  min-height: 100vh;
+  width: 100dvw;
 }
 
 .top-bg {
@@ -78,4 +78,8 @@ button:focus-visible {
 .content {
   max-width: 1280px;
   margin: 0 auto;
+}
+
+.screen-height {
+  min-height: 80dvh;
 }
