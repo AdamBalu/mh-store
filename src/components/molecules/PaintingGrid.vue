@@ -1,36 +1,39 @@
 <script setup lang="ts">
-import { vInfiniteScroll } from '@vueuse/components';
-import {ref} from "vue";
-
+import {useRouter} from "vue-router";
 import StorePainting from "./StorePainting.vue";
 
-const paintbrushStrokesGifSrc = "../../assets/brushstrokes_final.gif";
-const painting1Path = "../../assets/default_painting_1.jpg";
-const painting2Path = "../../assets/default_painting_2.jpg";
-const painting3Path = "../../assets/default_painting_3.jpg";
-const dropletsGifSrc = "../../assets/bruh3.gif";
+const paintbrushStrokesGifSrc = "/src/assets/brushstrokes.gif";
+const painting1Path = "/src/assets/default_painting_1.jpg";
+const painting2Path = "/src/assets/default_painting_2.jpg";
+const painting3Path = "/src/assets/default_painting_3.jpg";
+const dropletsGifSrc = "/src/assets/droplets.gif";
 
-const imagePaths = ref([painting1Path, painting2Path, painting3Path, painting1Path, painting2Path, painting3Path])
-const gifPaths = ref([paintbrushStrokesGifSrc, dropletsGifSrc, dropletsGifSrc, paintbrushStrokesGifSrc, paintbrushStrokesGifSrc, dropletsGifSrc])
+const router = useRouter();
 
-function onLoadMore() {
-  // imagePaths.value.push(...Array.from({ length: 5 }, (_, i) => i % 3 === 0 ? painting1Path : i % 3 === 1 ? painting2Path : painting3Path))
-  // gifPaths.value.push(...Array.from({ length: 5 }, (_, i) => i % 3 === 0 ? paintbrushStrokesGifSrc : i % 3 === 1 ? dropletsGifSrc : dropletsGifSrc))
+const paintings = [
+  {id: '1', paintingPath: painting1Path, gifPath: paintbrushStrokesGifSrc, price: '39.90'},
+  {id: '2', paintingPath: painting2Path, gifPath: dropletsGifSrc, price: '49'},
+  {id: '3', paintingPath: painting3Path, gifPath: dropletsGifSrc, price: '10.55'},
+  {id: '4', paintingPath: painting1Path, gifPath: paintbrushStrokesGifSrc, price: '5.20'},
+  {id: '5', paintingPath: painting2Path, gifPath: paintbrushStrokesGifSrc, price: '14'},
+  {id: '6', paintingPath: painting3Path, gifPath: dropletsGifSrc, price: '22.01'},
+];
+
+function goToProductDetail(painting: { id: string, paintingPath: string, price: string }) {
+  router.push({
+    name: 'PaintingDetail',
+    params: {id: painting.id},
+    query: {imagePath: painting.paintingPath, price: painting.price}
+  });
 }
-
 </script>
 
 <template>
-    <div v-infinite-scroll="onLoadMore" class="painting-grid">
-      <div v-for="item in imagePaths" :key="item">
-        <StorePainting :bg-path="gifPaths[imagePaths.indexOf(item)]" :painting-path="item" price="39.95" />
-      </div>
-<!--    <StorePainting :bg-path="paintbrushStrokesGifSrc" :painting-path="painting1Path" price="59.99" />-->
-<!--    <StorePainting :bg-path="dropletsGifSrc" :painting-path="painting2Path" price="39.95" />-->
-<!--    <StorePainting :bg-path="dropletsGifSrc" :painting-path="painting3Path" price="59.99" />-->
-<!--    <StorePainting :bg-path="paintbrushStrokesGifSrc" :painting-path="painting1Path" price="39.95" />-->
-<!--    <StorePainting :bg-path="paintbrushStrokesGifSrc" :painting-path="painting2Path" price="59.99" />-->
-<!--    <StorePainting :bg-path="dropletsGifSrc" :painting-path="painting3Path" price="39.95" />-->
+  <div class="painting-grid">
+    <div v-for="painting in paintings" :key="painting.id">
+      <StorePainting @click="goToProductDetail(painting)" :bg-path="painting.gifPath"
+                     :painting-path="painting.paintingPath" :price="painting.price"/>
+    </div>
   </div>
 </template>
 

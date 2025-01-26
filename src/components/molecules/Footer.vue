@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="footer">Kontaktujte ma</div>
+<div class="footer"><p>Kontaktujte ma</p></div>
 </template>
 
 <style scoped>
@@ -15,5 +15,12 @@
   margin-top: 10rem;
   background-image: url("../../assets/footer_bg.svg");
   height: 300px;
+}
+
+.footer p {
+  color: #B25BAE;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
 </style>

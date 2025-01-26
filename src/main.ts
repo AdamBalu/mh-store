@@ -1,7 +1,7 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
-import { createRouter, createWebHistory } from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router';
 
 const routes = [
   {
@@ -13,6 +13,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: () => import('./components/molecules/About.vue')
+  },
+  {
+    path: '/painting/:id',
+    name: 'PaintingDetail',
+    component: () => import('./views/Painting.vue')
   }
 ]
 
