@@ -11,19 +11,19 @@ const dropletsGifSrc = "/src/assets/droplets.gif";
 const router = useRouter();
 
 const paintings = [
-  {id: '1', paintingPath: painting1Path, gifPath: paintbrushStrokesGifSrc, price: '39.90'},
-  {id: '2', paintingPath: painting2Path, gifPath: dropletsGifSrc, price: '49'},
-  {id: '3', paintingPath: painting3Path, gifPath: dropletsGifSrc, price: '10.55'},
-  {id: '4', paintingPath: painting1Path, gifPath: paintbrushStrokesGifSrc, price: '5.20'},
-  {id: '5', paintingPath: painting2Path, gifPath: paintbrushStrokesGifSrc, price: '14'},
-  {id: '6', paintingPath: painting3Path, gifPath: dropletsGifSrc, price: '22.01'},
+  {id: '1', paintingPath: painting1Path, gifPath: paintbrushStrokesGifSrc, price: '39.90', name: 'Krowka'},
+  {id: '2', paintingPath: painting2Path, gifPath: dropletsGifSrc, price: '49', name: 'Bobrownik'},
+  {id: '3', paintingPath: painting3Path, gifPath: dropletsGifSrc, price: '10.55', name: 'Rysunek'},
+  {id: '4', paintingPath: painting1Path, gifPath: paintbrushStrokesGifSrc, price: '5.20', name: 'Obraz'},
+  {id: '5', paintingPath: painting2Path, gifPath: paintbrushStrokesGifSrc, price: '14', name: 'Kolorowe'},
+  {id: '6', paintingPath: painting3Path, gifPath: dropletsGifSrc, price: '22.01', name: 'Krest'},
 ];
 
-function goToProductDetail(painting: { id: string, paintingPath: string, price: string }) {
+function goToProductDetail(painting: { id: string, name: string, paintingPath: string, price: string }) {
   router.push({
     name: 'PaintingDetail',
     params: {id: painting.id},
-    query: {imagePath: painting.paintingPath, price: painting.price}
+    query: {name: painting.name, imagePath: painting.paintingPath, price: painting.price}
   });
 }
 </script>
@@ -39,7 +39,6 @@ function goToProductDetail(painting: { id: string, paintingPath: string, price: 
 
 <style scoped>
 .painting-grid {
-  margin-top: 250px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;

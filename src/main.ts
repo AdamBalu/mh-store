@@ -9,11 +9,11 @@ const routes = [
     name: 'Home',
     component: () => import('./views/Homepage.vue')
   },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('./components/molecules/About.vue')
-  },
+  // {
+  //   path: '/about',
+  //   name: 'About',
+  //   component: () => import('./components/molecules/About.vue')
+  // },
   {
     path: '/painting/:id',
     name: 'PaintingDetail',

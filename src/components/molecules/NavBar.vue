@@ -17,10 +17,10 @@ function goToAbout() {
 <template>
   <div class="nav-bar">
     <Logo @click="goToHome"/>
-    <div class="nav-bar-links">
-      <div class="nav-bar-link" @click="goToAbout">About</div>
-      <div class="nav-bar-link">Contact</div>
-    </div>
+<!--    <div class="nav-bar-links">-->
+<!--      <div class="nav-bar-link" @click="goToAbout">About</div>-->
+<!--      <div class="nav-bar-link">Contact</div>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -32,7 +32,7 @@ function goToAbout() {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  margin: 40px auto 0 auto;
+  margin: 40px auto 250px auto;
 }
 
 .nav-bar-links {
