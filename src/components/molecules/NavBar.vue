@@ -8,9 +8,9 @@ function goToHome() {
   router.push('/')
 }
 
-function goToAbout() {
-  router.push('/about')
-}
+// function goToAbout() {
+//   router.push('/about')
+// }
 
 </script>
 

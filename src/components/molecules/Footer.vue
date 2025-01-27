@@ -3,20 +3,22 @@
 </script>
 
 <template>
-<div class="footer"><p class="contact-me-label">Kontaktujte ma</p><div class="contact-icons">
+  <div class="footer"><p class="contact-me-label">Kontaktujte ma</p>
+    <div class="contact-icons">
   <span class="material-icons">
 email
 </span>
-  <span class="material-icons">
+      <span class="material-icons">
 email
 </span>
-  <span class="material-icons">
+      <span class="material-icons">
 email
 </span>
-  <span class="material-icons">
+      <span class="material-icons">
 email
 </span>
-</div></div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -37,6 +39,7 @@ email
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   .material-icons {
     font-size: 3rem;
     color: #B25BAE;

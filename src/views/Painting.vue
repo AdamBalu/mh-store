@@ -9,7 +9,7 @@ const route = useRoute();
     <div class="painting-purchase-section">
       <div class="painting-wrapper">
         <img src="/src/assets/image_detail_bg.png" alt="painting background" class="painting-background"/>
-        <img :src="route.query.imagePath" alt="painting1" class="painting"
+        <img :src="route.query.imagePath?.toString()" alt="painting1" class="painting"
              :style="{ backgroundImage: `/src/assets/image_detail_bg.png` }"/>
         <!--        <PriceChip :price="route.query.price"/>-->
         <span class="painting-name">{{ route.query.name }}</span>
