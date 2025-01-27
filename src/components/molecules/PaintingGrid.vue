@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import {useRouter} from "vue-router";
 import StorePainting from "./StorePainting.vue";
-
-const paintbrushStrokesGifSrc = "/src/assets/brushstrokes.gif";
-const painting1Path = "/src/assets/default_painting_1.jpg";
-const painting2Path = "/src/assets/default_painting_2.jpg";
-const painting3Path = "/src/assets/default_painting_3.jpg";
-const dropletsGifSrc = "/src/assets/droplets.gif";
+import paintbrushStrokesGifSrc from "@/assets/brushstrokes.gif";
+import painting1Path from "@/assets/default_painting_1.jpg";
+import painting2Path from "@/assets/default_painting_2.jpg";
+import painting3Path from "@/assets/default_painting_3.jpg";
+import dropletsGifSrc from "@/assets/droplets.gif";
 
 const router = useRouter();
 
