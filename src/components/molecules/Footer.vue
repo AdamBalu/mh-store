@@ -7,15 +7,12 @@
     <div class="contact-icons">
   <span class="material-icons">
 email
+  </span>
+      <span class="material-icons">
+call
 </span>
       <span class="material-icons">
-email
-</span>
-      <span class="material-icons">
-email
-</span>
-      <span class="material-icons">
-email
+thumb_up_off_alt
 </span>
     </div>
   </div>
