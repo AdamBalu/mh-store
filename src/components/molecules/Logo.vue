@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
-const logoGifPath = "../../assets/logo.gif";
-const logoPath = "../../assets/logo.svg";
+import logoGifPath from "@/assets/logo.gif";
+import logoPath from "@/assets/logo.svg";
 
 const gifPath = new URL(logoGifPath, import.meta.url).href
 const gifSrc = ref<string | null>(null);
